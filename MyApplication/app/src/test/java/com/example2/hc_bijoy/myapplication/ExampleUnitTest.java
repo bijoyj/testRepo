@@ -2,6 +2,8 @@ package com.example2.hc_bijoy.myapplication;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 /**
@@ -11,12 +13,23 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    public void verifyBusinessLogic1() {
+        ArrayList a = new ArrayList();
+        a.add("One");
+        a.add("Two");
+        VIewModel vm = new VIewModel(a);
+        int size = vm.BusinessLogic1();
+        assertEquals(a.size(), size);
     }
 
     @Test
-    public void addition_isCorrect2() {
-        assertEquals(5, 2 + 3);
+    public void verifyBusinessLogic2() {
+        ArrayList a = new ArrayList();
+        a.add("One");
+        a.add("Two");
+        VIewModel vm = new VIewModel(a);
+        String val = vm.BusinessLogic2(1);
+
+        assertEquals("Two", val);
     }
 }

@@ -1,17 +1,52 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: 'org.sonarqube'
 
 buildscript {
     
     repositories {
         google()
         jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
-        
+        classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6'
+        classpath "com.dicedmelon.gradle:jacoco-android:0.1.1"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+    }
+
+    configurations.all { exclude module:"groovy-all"}
+}
+
+
+sonarqube{
+    properties {
+        property "sonar.projectKey", "CICD-Test"
+        property "sonar.projectName", "CICD-Test"
+        property "sonar.projectVersion", "1.0"
+        property "sonar.exclusions", "robospice/**/*"
+
+        property "sonar.sources", "src/main/java"
+        property "sonar.binaries", "build/intermediates/app_classes/debug"
+        property "sonar.java.binaries", "build/intermediates/app_classes/debug"
+        property "sonar.tests", "src/test/java"
+        property "sonar.java.test.binaries", "build/intermediates/app_classes/debug"
+
+        def unit = fileTree(dir: project.projectDir, includes: ['**/*.exec']).files;
+     //   def ui = fileTree(dir: project.projectDir, includes: ['**/*.ec']).files;
+     //   unit.addAll(ui);
+     //   def files = unit.join(", ");
+
+        property "sonar.jacoco.reportPaths", unit
+        property "sonar.java.coveragePlugin", "jacoco"
+        property "sonar.junit.reportsPath", "build/test-results/testDebugUnitTest"
+        property "sonar.android.lint.report", "build/reports/lint-results-debug.xml"
+
+
     }
 }
 
