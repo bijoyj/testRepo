@@ -25,8 +25,8 @@ buildscript {
 
 sonarqube{
     properties {
-        property "sonar.projectKey", "CICD-Test"
-        property "sonar.projectName", "CICD-Test"
+        property "sonar.projectKey", "AndroidTest"
+        property "sonar.projectName", "AndroidTest"
         property "sonar.projectVersion", "1.0"
         property "sonar.exclusions", "robospice/**/*"
 
