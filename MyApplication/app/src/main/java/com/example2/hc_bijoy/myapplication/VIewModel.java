@@ -18,15 +18,15 @@ public class VIewModel {
 
     public String BusinessLogic2(int index){
 
-        try {
+      /*  try {
             String a = null;
             if (a.equalsIgnoreCase(test.get(index))){
                 return a;
             }
-               
+
         } catch (Exception e){
             return null;
-        }
+        }*/
 
         return test.get(index);
 
