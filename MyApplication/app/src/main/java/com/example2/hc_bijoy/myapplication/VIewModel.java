@@ -1,7 +1,5 @@
 package com.example2.hc_bijoy.myapplication;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 
 public class VIewModel {
