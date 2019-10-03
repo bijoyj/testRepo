@@ -1,5 +1,7 @@
 package com.example2.hc_bijoy.myapplication;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class VIewModel {
@@ -15,7 +17,19 @@ public class VIewModel {
     }
 
     public String BusinessLogic2(int index){
+
+        try {
+            String a = null;
+            if (a.equalsIgnoreCase(test.get(index))){
+                return a;
+            }
+               
+        } catch (Exception e){
+            return null;
+        }
+
         return test.get(index);
+
     }
 
 }
